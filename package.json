@@ -6,6 +6,8 @@
     "start": "export EXPO_PACKAGER_PROXY_URL=https://${CSB_SANDBOX_ID}-8080.csb.app && expo start --port 8080",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -13,15 +15,20 @@
     "expo": "~49.0.16",
     "expo-status-bar": "~1.7.1",
     "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-native": "0.72.6",
-    "react-native-web": "~0.19.9",
-    "react-dom": "18.2.0"
+    "react-native-web": "~0.19.9"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "body-parser": "^1.18.3",
+    "eslint": "^9.14.0",
+    "eslint-config-react-native": "^4.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
     "express": "^4.16.3",
     "http-proxy-middleware": "^2.0.6",
+    "prettier": "^3.3.3",
     "qs": "^6.11.2",
     "xdl": "^60.0.12"
   },
