@@ -1,16 +1,36 @@
 import {StyleSheet, TextInput, View} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
+import {useState} from "react";
 
 function StartGameScreen() {
+
+  const [enteredNumber, setEnteredNumber] = useState('')
+
+  function numberInputHandler(enteredText) {
+    setEnteredNumber(enteredText)
+  }
+
+  function confirmInputHandler(pressedEvent) {
+
+  }
+
   return (
     <View style={styles.inputContainer}>
       <TextInput style={styles.numberInput}
                  maxLength={2}
                  keyboardType={"number-pad"}
                  autoCapitalize={"none"}
+                 value={enteredNumber}
+                 onChangeText={numberInputHandler}
                  autoCorrect={false}/>
-      <PrimaryButton>Reset</PrimaryButton>
-      <PrimaryButton>Confirm</PrimaryButton>
+      <View style={styles.buttonsContainer}>
+        <View style={styles.buttonContainer}>
+          <PrimaryButton>Reset</PrimaryButton>
+        </View>
+        <View style={styles.buttonContainer}>
+          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+        </View>
+      </View>
     </View>
   );
 }
@@ -19,6 +39,8 @@ export default StartGameScreen;
 
 const styles = StyleSheet.create({
   inputContainer: {
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 100,
     marginHorizontal: 24,
     padding: 16,
@@ -29,6 +51,12 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 6,
     shadowOpacity: 0.25,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  buttonContainer: {
+    flex: 1,
   },
   numberInput: {
     height: 50,
